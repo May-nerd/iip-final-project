@@ -3,9 +3,13 @@ import pandas as pd
 from skimage.io import imread, imshow
 from tqdm import tqdm
 import cv2
-
+from skimage.color import rgb2gray, rgb2hsv
+from skimage.filters import threshold_otsu
+from skimage.morphology import dilation, erosion
 
 def get_gray_hist(df):
+    """Return dataframe with frequencies and edges 
+    of gray intensities from images as added columns."""
     new_features_list = []
     for idx in tqdm(range(len(df))):
         image = imread(df.iloc[idx]['filepath'])
@@ -26,7 +30,7 @@ def get_gray_hist(df):
 
 
 def rgb_stats(df_):
-    
+    df = df_
     df_rgb = df
     
     r_mean, g_mean, b_mean = [], [], []
@@ -95,7 +99,7 @@ def vessels_area(df):
 
 
 def disc_area(df):
-    """Calculate the Area of the Blood Vessels via Canny Edge Detection
+    """Calculate the Area of the Disc Area via Canny Edge Detection
     """
 
     df_canny = df
@@ -132,6 +136,7 @@ def disc_area(df):
 
 def hsv_stats(df_):
     
+    df = df_
     df_rgb = df
     
     h_mean, s_mean, v_mean = [], [], []

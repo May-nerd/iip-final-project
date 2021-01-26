@@ -141,3 +141,4 @@ cython_debug/
 ODIR-5K
 preprocessed_images
 full_df.csv
+*.gz

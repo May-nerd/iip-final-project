@@ -30,6 +30,8 @@ def get_gray_hist(df):
 
 
 def rgb_stats(df_):
+    """Add columns to the dataframe about RGB statistics. 
+    """
     df = df_
     df_rgb = df
     
@@ -135,6 +137,8 @@ def disc_area(df):
     return df_canny
 
 def hsv_stats(df_):
+    """Add columns to the dataframe about HSV statistics. 
+    """
     
     df = df_
     df_rgb = df
